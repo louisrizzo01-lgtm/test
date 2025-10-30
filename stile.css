@@ -1,1 +1,97 @@
+/* =====================================================
+   RESET BASICO per assicurare uniformità tra browser
+   ===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box‑sizing: border-box;
+}
 
+/* =====================================================
+   STILI GENERALI del corpo pagina
+   ===================================================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+/* =====================================================
+   HEADER — titolo principale e sottotitolo
+   ===================================================== */
+.site-header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #004d40; /* verde scuro per tema sostenibilità */
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.site-header .subtitle {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+/* =====================================================
+   MAIN CONTENT
+   ===================================================== */
+.content {
+    max-width: 800px;
+    margin: 0 auto; /* centra la sezione */
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.content h2 {
+    margin-bottom: 15px;
+    color: #00695c; /* un verde leggermente più chiaro */
+}
+
+.content p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.content li {
+    margin-bottom: 10px;
+}
+
+/* =====================================================
+   BOTTONE DOWNLOAD
+   ===================================================== */
+.btn-download {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #00796b;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: #004d40;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.site-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #666666;
+}
