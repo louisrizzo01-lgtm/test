@@ -1,109 +1,132 @@
-/* styles.css
-   Foglio di stile per la pagina di download report.
-   I commenti spiegano scelte di design e accessibilità (da riportare nella tesi).
-*/
-
-/* Reset minimale */
-* { box-sizing: border-box; }
-html,body { height: 100%; margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #222; background: #f7f7f8; }
-
-/* Container centrale con margine adeguato */
-.container { max-width: 1000px; margin: 0 auto; padding: 1.25rem; }
-
-/* Skip link nascosto ma visibile quando in focus */
-.skip-link {
-  position: absolute;
-  left: -999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+/* RESET BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.skip-link:focus {
-  left: 1rem;
-  top: 1rem;
-  width: auto;
-  height: auto;
-  padding: .5rem .75rem;
-  background: #000;
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: #f4f4f4 url('https://i.imgur.com/GVfQY2D.jpeg') no-repeat center fixed;
+  background-size: cover;
+  padding-bottom: 40px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* HEADER */
+.site-header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  padding: 15px 0;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.header-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO BOX (riquadro arancione come nella prima versione originale) */
+.logo-box {
+  background: #f44336;
   color: #fff;
-  z-index: 999;
-  border-radius: 4px;
-}
-
-/* Header */
-.site-header { background: linear-gradient(90deg,#fff 0%, #fff 70%); border-bottom: 1px solid #e6e6e9; }
-.header-grid { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding: .75rem 0; }
-.brand .logo { height:40px; width:auto; display:block; }
-
-/* Navigazione */
-.nav { list-style: none; margin: 0; padding: 0; display:flex; gap: .5rem; }
-.nav a { text-decoration: none; padding: .5rem .75rem; border-radius:6px; color:#1b1b1c; }
-.nav a:hover, .nav a:focus { background:#f0f0f2; outline: none; }
-
-/* Intestazione principale */
-.intro h1 { margin-top: 1rem; margin-bottom: .25rem; font-size: 1.5rem; }
-.intro p { margin: 0 0 1rem 0; color:#444; }
-
-/* Controlli di ricerca */
-.controls { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom: 1rem; }
-.controls input[type="search"], .controls select {
-  padding: .5rem .6rem;
+  padding: 12px 20px;
   border-radius: 6px;
-  border: 1px solid #dcdce0;
-  background: #fff;
-  min-width: 200px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* Lista report */
-.reports h2 { font-size: 1.25rem; margin-top: 1.25rem; }
-.notes { color:#666; font-size: .95rem; margin-bottom: .75rem; }
+/* NAV */
+.nav {
+  display: flex;
+  gap: 18px;
+}
 
-/* Card dei report - semantica a11y: ogni articolo ha sufficiente contrasto */
-.report-list { list-style:none; padding:0; margin:0; display:grid; gap:1rem; }
-.report-item article {
-  background: #ffffff;
-  border: 1px solid #e9e9ee;
-  padding: 1rem;
+.nav li {
+  list-style: none;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  color: #f44336;
+}
+
+/* INTRO */
+.intro {
+  background: rgba(255, 255, 255, 0.88);
+  padding: 25px;
   border-radius: 10px;
-  box-shadow: 0 1px 2px rgba(20,20,30,0.03);
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
-.report-item h3 { margin: 0 0 .25rem 0; font-size: 1.05rem; }
-.meta { font-size: .9rem; color:#666; margin-bottom: .5rem; }
-.summary { margin-bottom: .75rem; color:#444; }
 
-/* Azioni: bottoni e link */
-.actions { display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; }
+/* REPORT LIST */
+.report-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.report-item article {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .btn {
-  display:inline-flex; align-items:center; gap:.5rem;
-  padding: .45rem .65rem; border-radius: 8px;
-  text-decoration:none; border: none; cursor:pointer;
-  font-size: .95rem;
-}
-.btn:focus { outline: 3px solid rgba(0,120,212,0.15); outline-offset:2px; }
-
-/* Varianti */
-.btn-download { background: #007bff; color: white; }
-.btn-download:hover { filter: brightness(.95); }
-.btn-fetch { background: #28a745; color: white; }
-.btn-info { background: transparent; color: #007bff; border: 1px solid transparent; }
-
-/* Footer */
-.site-footer { margin-top: 2rem; padding: .75rem 0; border-top: 1px solid #e6e6e9; background: transparent; color:#666; font-size:.95rem; }
-
-/* Utility: elementi nascosti ma leggibili dai screen reader */
-.visually-hidden {
-  position: absolute !important;
-  height: 1px; width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap;
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
 }
 
-/* Responsive: schermi piccoli */
-@media (max-width: 640px) {
-  .header-grid { flex-direction: column; align-items: flex-start; gap: .5rem; }
-  .actions { flex-direction: column; align-items: stretch; }
-  .controls { gap: .25rem; }
+.btn-download {
+  background: #4caf50;
+  color: #fff;
 }
 
+.btn-fetch {
+  background: #2196f3;
+  color: #fff;
+}
+
+.btn-info {
+  background: #ff9800;
+  color: #fff;
+}
+
+/* FOOTER */
+.site-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  color: #555;
+  background: rgba(255,255,255,0.8);
+}
