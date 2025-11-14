@@ -106,3 +106,23 @@ html,body { height: 100%; margin: 0; font-family: system-ui, -apple-system, "Seg
   .actions { flex-direction: column; align-items: stretch; }
   .controls { gap: .25rem; }
 }
+/* =========================================================
+   sfondo globale per la pagina
+   (Puoi sostituire background.jpg con il nome del file locale)
+   ========================================================= */
+body {
+  background: url("background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Per rendere leggibile il contenuto sopra lo sfondo */
+.container, .site-header, .site-footer {
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+}
+
+/* Se vuoi maggiore contrasto nei contenuti allora aumenta l’opacità:  
+   background: rgba(255,255,255,0.85); 
+*/
+
