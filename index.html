@@ -1,216 +1,57 @@
-<!doctype html>
-<!--
-  index.html — Pagina per il download dei report di sostenibilità
-  Versione semplificata senza download via JavaScript
-  Con immagine di sfondo gestita da CSS
--->
+<!DOCTYPE html>
 <html lang="it">
 <head>
- <style>
-background-size: cover; /* L'immagine copre tutta la pagina */
-background-position: center; /* Centra l'immagine */
-background-repeat: no-repeat; /* Evita ripetizioni */
-backdrop-filter: blur(3px); /* Leggero effetto sfocatura sullo sfondo */
-}
-
-
-/* Contenitore principale con sfondo semitrasparente per leggibilità */
-.container {
-max-width: 900px;
-margin: 50px auto;
-background-color: rgba(255, 255, 255, 0.85);
-padding: 30px;
-border-radius: 12px;
-box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
-}
-
-
-h1 {
-text-align: center;
-color: #cc0000; /* Richiama il colore Coca-Cola */
-}
-
-
-p {
-font-size: 18px;
-line-height: 1.6;
-}
-
-
-.report-list {
-margin-top: 30px;
-}
-
-
-.report-item {
-margin: 15px 0;
-padding: 15px;
-border-left: 5px solid #cc0000;
-background-color: #f9f9f9;
-border-radius: 6px;
-}
-
-
-.report-item a {
-text-decoration: none;
-color: #cc0000;
-font-weight: bold;
-}
-
-
-.report-item a:hover {
-text-decoration: underline;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report di Sostenibilità – Coca-Cola</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- WRAPPER PRINCIPALE PER MIGLIORE LEGGIBILITÀ -->
+    <div class="wrapper">
 
-  <!-- Skip link per accessibilità -->
-  <a class="skip-link" href="#main">Salta al contenuto</a>
+        <!-- HEADER ACCESSIBILE -->
+        <header class="header">
+            <h1>Report di Sostenibilità – Coca-Cola</h1>
+            <p class="subtitle">Download dei documenti ufficiali per il progetto di tesi</p>
+        </header>
 
-  <!-- HEADER -->
-  <header class="site-header" role="banner">
-    <div class="container header-grid">
-      <div class="brand">
-        <!-- Logo semplificato come SVG inline -->
-        <img src="data:image/svg+xml;utf8,
-          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'>
-            <rect width='200' height='50' fill='%23ff0000'/>
-            <text x='16' y='34' font-family='Arial' font-size='20' fill='white'>Coca-Cola • Sostenibilità</text>
-          </svg>"
-          alt="Logo Coca-Cola sostenibilità" class="logo" />
-      </div>
+        <!-- SEZIONE INTRODUTTIVA -->
+        <section class="intro">
+            <p>
+                Questa pagina raccoglie alcuni dei principali report di sostenibilità pubblicati da Coca-Cola.
+                L’obiettivo è fornire un’interfaccia chiara, accessibile e coerente con i principi di trasparenza
+                e responsabilità ambientale. Tutti i file disponibili sono scaricabili in formato PDF.
+            </p>
+        </section>
 
-      <nav aria-label="Navigazione principale">
-        <ul class="nav">
-          <li><a href="#about">Informazioni</a></li>
-          <li><a href="#reports">Report</a></li>
-          <li><a href="#contact">Contatti</a></li>
-        </ul>
-      </nav>
+        <!-- LISTA DEI REPORT IN CARTE EVIDENZIATE -->
+        <section class="reports">
+            <article class="report-card">
+                <h2>Report di Sostenibilità 2021</h2>
+                <p class="desc">Analisi delle iniziative ambientali, sociali ed economiche dell’anno 2021.</p>
+                <a class="download-btn" href="report2021.pdf" download>Scarica il PDF</a>
+            </article>
+
+            <article class="report-card">
+                <h2>Report di Sostenibilità 2022</h2>
+                <p class="desc">Aggiornamento annuale sugli indicatori ESG e sulle politiche di responsabilità.</p>
+                <a class="download-btn" href="report2022.pdf" download>Scarica il PDF</a>
+            </article>
+
+            <article class="report-card">
+                <h2>Bilancio ESG 2023</h2>
+                <p class="desc">Documento completo relativo alla strategia ambientale, sociale e di governance.</p>
+                <a class="download-btn" href="bilancioESG2023.pdf" download>Scarica il PDF</a>
+            </article>
+        </section>
+
+        <!-- FOOTER ESSENZIALE -->
+        <footer class="footer">
+            <p>Progetto universitario – Informatica per le Aziende Digitali · Pegaso</p>
+            <p class="note">I report sono proprietà dei rispettivi autori e vengono forniti solo a scopo accademico.</p>
+        </footer>
+
     </div>
-  </header>
-
-  <!-- CONTENUTO PRINCIPALE -->
-  <main id="main" class="container" role="main">
-
-    <!-- INTRO -->
-    <section id="about" class="intro" aria-labelledby="about-title">
-      <h1 id="about-title">Report di sostenibilità — The Coca-Cola Company</h1>
-
-      <p>
-        In questa pagina puoi consultare e scaricare i principali report di sostenibilità pubblicati dal gruppo Coca-Cola.
-        I documenti collegati sono le versioni ufficiali rese disponibili sui siti corporate dell’azienda.
-      </p>
-
-      <!-- Barra di ricerca -->
-      <div class="controls">
-        <label class="visually-hidden" for="search">Cerca report</label>
-        <input type="search" id="search" placeholder="Cerca per anno o titolo…" aria-label="Cerca report" />
-      </div>
-    </section>
-
-    <!-- LISTA REPORT -->
-    <section id="reports" class="reports" aria-labelledby="reports-title">
-      <h2 id="reports-title">Report disponibili</h2>
-      <p class="notes">I link sottostanti scaricano direttamente i file PDF ufficiali.</p>
-
-      <ul id="report-list" class="report-list">
-
-        <!-- Report 2023 -->
-        <li class="report-item">
-          <article aria-labelledby="r1-title">
-            <h3 id="r1-title">Environmental Update 2023 — The Coca-Cola Company</h3>
-            <p class="meta">Anno: 2023 · Formato: PDF</p>
-            <p class="summary">Aggiornamento ambientale su clima, packaging, uso dell’acqua.</p>
-
-            <div class="actions">
-              <a class="btn btn-download"
-                 href="https://www.coca-colacompany.com/content/dam/company/us/en/reports/2023-environmental-update/2023-environmental-update.pdf"
-                 download="CocaCola_Environmental_Update_2023.pdf">
-                Scarica PDF
-              </a>
-            </div>
-          </article>
-        </li>
-
-        <!-- Report 2022 -->
-        <li class="report-item">
-          <article aria-labelledby="r2-title">
-            <h3 id="r2-title">Business & Sustainability Report 2022</h3>
-            <p class="meta">Anno: 2022 · Formato: PDF</p>
-            <p class="summary">Report integrato che unisce performance aziendale e sostenibilità.</p>
-
-            <div class="actions">
-              <a class="btn btn-download"
-                 href="https://www.coca-colacompany.com/content/dam/company/us/en/reports/coca-cola-business-sustainability-report-2022.pdf"
-                 download="CocaCola_Business_Sustainability_2022.pdf">
-                Scarica PDF
-              </a>
-            </div>
-          </article>
-        </li>
-
-        <!-- Coca-Cola Europacific Partners -->
-        <li class="report-item">
-          <article aria-labelledby="r3-title">
-            <h3 id="r3-title">Coca-Cola Europacific Partners — Sustainability Group Data 2023</h3>
-            <p class="meta">Anno: 2023 · Formato: PDF</p>
-            <p class="summary">Appendici e dati consolidati del partner europeo.</p>
-
-            <div class="actions">
-              <a class="btn btn-download"
-                 href="https://www.cocacolaep.com/assets/Download-centre/2023-Sustainability-group-data-3.pdf"
-                 download="CCEP_Sustainability_Group_Data_2023.pdf">
-                Scarica PDF
-              </a>
-            </div>
-          </article>
-        </li>
-
-        <!-- Coca-Cola HBC Italia -->
-        <li class="report-item">
-          <article aria-labelledby="r4-title">
-            <h3 id="r4-title">Coca-Cola HBC Italia — Sustainability Abstract 2022</h3>
-            <p class="meta">Anno: 2022 · Formato: PDF</p>
-            <p class="summary">Sintesi del rapporto di sostenibilità della filiale italiana.</p>
-
-            <div class="actions">
-              <a class="btn btn-download"
-                 href="https://it.coca-colahellenic.com/content/dam/cch/it/documents/pdf-sostenibilita-2023/27062024/CSR-23-abstract-eng.pdf.downloadasset.pdf"
-                 download="CocaColaHBC_Italia_2022.pdf">
-                Scarica PDF
-              </a>
-            </div>
-          </article>
-        </li>
-
-      </ul>
-    </section>
-
-    <!-- CONTATTI -->
-    <section id="contact" class="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Note e contatti</h2>
-      <p>
-        Tutti i PDF collegati provengono dai siti ufficiali del gruppo Coca-Cola.
-        Puoi citare queste fonti nel capitolo della tesi destinato alla documentazione.
-      </p>
-
-      <address>
-        Studente: [Nome Cognome]<br>
-        Email: <a href="mailto:tuo@studente.unipd.it">tuo@studente.unipd.it</a>
-      </address>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <p>Progetto web per la tesi — 2025</p>
-    </div>
-  </footer>
-
 </body>
 </html>
-
