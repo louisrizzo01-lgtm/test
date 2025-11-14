@@ -1,31 +1,33 @@
 <!doctype html>
 <!--
-  index.html
-  Pagina per scaricare i report di sostenibilità (esempio: Coca-Cola).
-  Inserire questo file e styles.css nella stessa cartella. 
-  I commenti qui spiegano struttura, accessibilità e logica (da usare nella tesi).
+  index.html — Pagina per il download dei report di sostenibilità
+  Versione semplificata senza download via JavaScript
+  Con immagine di sfondo gestita da CSS
 -->
 <html lang="it">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Report di sostenibilità — Download | Tesi</title>
-  <meta name="description" content="Pagina per scaricare i report di sostenibilità della Coca-Cola. Interfaccia accessibile e documentata per la tesi." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Report di sostenibilità — Coca-Cola | Tesi</title>
+  <meta name="description" content="Pagina web per scaricare i report di sostenibilità della Coca-Cola, con interfaccia chiara e accessibile." />
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Skip link (accessibilità): permette di saltare direttamente al contenuto principale -->
+
+  <!-- Skip link per accessibilità -->
   <a class="skip-link" href="#main">Salta al contenuto</a>
 
+  <!-- HEADER -->
   <header class="site-header" role="banner">
     <div class="container header-grid">
       <div class="brand">
+        <!-- Logo semplificato come SVG inline -->
         <img src="data:image/svg+xml;utf8,
           <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 50'>
-            <rect width='200' height='50' fill='%23f44336'/>
-            <text x='16' y='34' font-family='Arial' font-size='20' fill='white'>Sostenibilità • Tesi</text>
+            <rect width='200' height='50' fill='%23ff0000'/>
+            <text x='16' y='34' font-family='Arial' font-size='20' fill='white'>Coca-Cola • Sostenibilità</text>
           </svg>"
-          alt="Logo tesi - Sostenibilità" class="logo" />
+          alt="Logo Coca-Cola sostenibilità" class="logo" />
       </div>
 
       <nav aria-label="Navigazione principale">
@@ -38,209 +40,126 @@
     </div>
   </header>
 
+  <!-- CONTENUTO PRINCIPALE -->
   <main id="main" class="container" role="main">
-    <!-- Sezione introduttiva -->
+
+    <!-- INTRO -->
     <section id="about" class="intro" aria-labelledby="about-title">
-      <h1 id="about-title">Report di sostenibilità — The Coca-Cola Company (esempio)</h1>
+      <h1 id="about-title">Report di sostenibilità — The Coca-Cola Company</h1>
+
       <p>
-        Questa pagina permette di esplorare e scaricare i report di sostenibilità pubblicati dalla Coca-Cola e aziende del suo sistema. 
-        Nella tesi va spiegato che i link puntano ai PDF ufficiali pubblicati sui siti corporate (i link sono citati nel paragrafo delle fonti).
+        In questa pagina puoi consultare e scaricare i principali report di sostenibilità pubblicati dal gruppo Coca-Cola.
+        I documenti collegati sono le versioni ufficiali rese disponibili sui siti corporate dell’azienda.
       </p>
 
-      <div class="controls" aria-hidden="false">
-        <!-- Campo di ricerca: filtra per titolo o anno -->
-        <label for="search" class="visually-hidden">Cerca report</label>
-        <input id="search" type="search" placeholder="Cerca per titolo o anno (es. '2023')" aria-label="Cerca report" />
-        <!-- Filter dropdown: tipo di documento -->
-        <label for="filter-type" class="visually-hidden">Filtra per tipo</label>
-        <select id="filter-type" aria-label="Filtra per tipo">
-          <option value="all">Tutti i tipi</option>
-          <option value="integrated">Integrated / Business & Sustainability</option>
-          <option value="environmental">Environmental update</option>
-          <option value="country">Country / Local report</option>
-        </select>
+      <!-- Barra di ricerca -->
+      <div class="controls">
+        <label class="visually-hidden" for="search">Cerca report</label>
+        <input type="search" id="search" placeholder="Cerca per anno o titolo…" aria-label="Cerca report" />
       </div>
     </section>
 
-    <!-- Lista dei report: strutturata semanticamente come lista di elementi "article" -->
+    <!-- LISTA REPORT -->
     <section id="reports" class="reports" aria-labelledby="reports-title">
       <h2 id="reports-title">Report disponibili</h2>
-      <p class="notes">Clicca su "Scarica" per ricevere il PDF sul tuo computer. Se il browser supporta il download diretto, il file verrà salvato localmente.</p>
+      <p class="notes">I link sottostanti scaricano direttamente i file PDF ufficiali.</p>
 
       <ul id="report-list" class="report-list">
-        <!-- Esempi con attributo data-* utili per filtri e accessibilità -->
-        <li class="report-item" data-type="environmental" data-year="2023">
+
+        <!-- Report 2023 -->
+        <li class="report-item">
           <article aria-labelledby="r1-title">
-            <h3 id="r1-title">2023 Environmental Update — The Coca-Cola Company</h3>
-            <p class="meta">Tipo: Environmental update · Anno: 2023 · Formato: PDF (ufficiale)</p>
-            <p class="summary">Sintesi: aggiornamento ambientale con focus su clima, acqua e packaging.</p>
+            <h3 id="r1-title">Environmental Update 2023 — The Coca-Cola Company</h3>
+            <p class="meta">Anno: 2023 · Formato: PDF</p>
+            <p class="summary">Aggiornamento ambientale su clima, packaging, uso dell’acqua.</p>
+
             <div class="actions">
-              <!-- Link diretto con download: il "download" suggerisce di salvare il file localmente -->
-              <a class="btn btn-download" href="https://www.coca-colacompany.com/content/dam/company/us/en/reports/2023-environmental-update/2023-environmental-update.pdf" download="CocaCola_2023_Environmental_Update.pdf" aria-label="Scarica 2023 Environmental Update (PDF)">
-                Scarica (link ufficiale)
+              <a class="btn btn-download"
+                 href="https://www.coca-colacompany.com/content/dam/company/us/en/reports/2023-environmental-update/2023-environmental-update.pdf"
+                 download="CocaCola_Environmental_Update_2023.pdf">
+                Scarica PDF
               </a>
-
-              <!-- Bottone che usa fetch+blob per forzare il download dalla stessa origine o attraverso CORS se consentito.
-                   Questo approccio è utile in contesti didattici per spiegare come scaricare file via JavaScript. -->
-              <button class="btn btn-fetch" data-url="https://www.coca-colacompany.com/content/dam/company/us/en/reports/2023-environmental-update/2023-environmental-update.pdf">
-                Scarica con JavaScript
-              </button>
-
-              <a class="btn btn-info" href="#about" aria-label="Maggiori informazioni">Info</a>
             </div>
           </article>
         </li>
 
-        <li class="report-item" data-type="integrated" data-year="2022">
+        <!-- Report 2022 -->
+        <li class="report-item">
           <article aria-labelledby="r2-title">
-            <h3 id="r2-title">2022 Business & Sustainability Report — The Coca-Cola Company</h3>
-            <p class="meta">Tipo: Integrated report · Anno: 2022 · Formato: PDF (ufficiale)</p>
-            <p class="summary">Sintesi: integrazione di performance aziendale e sostenibilità (strategia, metriche, obiettivi).</p>
+            <h3 id="r2-title">Business & Sustainability Report 2022</h3>
+            <p class="meta">Anno: 2022 · Formato: PDF</p>
+            <p class="summary">Report integrato che unisce performance aziendale e sostenibilità.</p>
+
             <div class="actions">
-              <a class="btn btn-download" href="https://www.coca-colacompany.com/content/dam/company/us/en/reports/coca-cola-business-sustainability-report-2022.pdf" download="CocaCola_2022_Business_Sustainability_Report.pdf" aria-label="Scarica 2022 Business & Sustainability Report (PDF)">
-                Scarica (link ufficiale)
+              <a class="btn btn-download"
+                 href="https://www.coca-colacompany.com/content/dam/company/us/en/reports/coca-cola-business-sustainability-report-2022.pdf"
+                 download="CocaCola_Business_Sustainability_2022.pdf">
+                Scarica PDF
               </a>
-              <button class="btn btn-fetch" data-url="https://www.coca-colacompany.com/content/dam/company/us/en/reports/coca-cola-business-sustainability-report-2022.pdf">
-                Scarica con JavaScript
-              </button>
             </div>
           </article>
         </li>
 
-        <li class="report-item" data-type="country" data-year="2023">
+        <!-- Coca-Cola Europacific Partners -->
+        <li class="report-item">
           <article aria-labelledby="r3-title">
-            <h3 id="r3-title">Coca-Cola Europacific Partners — 2023 Sustainability Group Data</h3>
-            <p class="meta">Tipo: Country / Group data · Anno: 2023</p>
-            <p class="summary">Dataset e appendici legate al reporting di sostenibilità del gruppo Europacific Partners.</p>
+            <h3 id="r3-title">Coca-Cola Europacific Partners — Sustainability Group Data 2023</h3>
+            <p class="meta">Anno: 2023 · Formato: PDF</p>
+            <p class="summary">Appendici e dati consolidati del partner europeo.</p>
+
             <div class="actions">
-              <a class="btn btn-download" href="https://www.cocacolaep.com/assets/Download-centre/2023-Sustainability-group-data-3.pdf" download="CCEP_2023_Sustainability_Group_Data.pdf" aria-label="Scarica CCEP 2023 Sustainability Group Data (PDF)">
-                Scarica (link ufficiale)
+              <a class="btn btn-download"
+                 href="https://www.cocacolaep.com/assets/Download-centre/2023-Sustainability-group-data-3.pdf"
+                 download="CCEP_Sustainability_Group_Data_2023.pdf">
+                Scarica PDF
               </a>
-              <button class="btn btn-fetch" data-url="https://www.cocacolaep.com/assets/Download-centre/2023-Sustainability-group-data-3.pdf">
-                Scarica con JavaScript
-              </button>
             </div>
           </article>
         </li>
 
-        <li class="report-item" data-type="country" data-year="2022">
+        <!-- Coca-Cola HBC Italia -->
+        <li class="report-item">
           <article aria-labelledby="r4-title">
-            <h3 id="r4-title">Coca-Cola HBC Italia — Sustainability Report 2022 (abstract)</h3>
-            <p class="meta">Tipo: Country / Local report · Anno: 2022</p>
-            <p class="summary">Rapporto di sostenibilità della filiale italiana (abstract e link al PDF).</p>
+            <h3 id="r4-title">Coca-Cola HBC Italia — Sustainability Abstract 2022</h3>
+            <p class="meta">Anno: 2022 · Formato: PDF</p>
+            <p class="summary">Sintesi del rapporto di sostenibilità della filiale italiana.</p>
+
             <div class="actions">
-              <a class="btn btn-download" href="https://it.coca-colahellenic.com/content/dam/cch/it/documents/pdf-sostenibilita-2023/27062024/CSR-23-abstract-eng.pdf.downloadasset.pdf" download="CocaColaHBC_Italy_2022_Sustainability_Abstract.pdf" aria-label="Scarica Coca-Cola HBC Italia Sustainability 2022 (PDF)">
-                Scarica (link ufficiale)
+              <a class="btn btn-download"
+                 href="https://it.coca-colahellenic.com/content/dam/cch/it/documents/pdf-sostenibilita-2023/27062024/CSR-23-abstract-eng.pdf.downloadasset.pdf"
+                 download="CocaColaHBC_Italia_2022.pdf">
+                Scarica PDF
               </a>
-              <button class="btn btn-fetch" data-url="https://it.coca-colahellenic.com/content/dam/cch/it/documents/pdf-sostenibilita-2023/27062024/CSR-23-abstract-eng.pdf.downloadasset.pdf">
-                Scarica con JavaScript
-              </button>
             </div>
           </article>
         </li>
+
       </ul>
     </section>
 
-    <!-- Contatto / note sulle fonti -->
+    <!-- CONTATTI -->
     <section id="contact" class="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Note sulle fonti e contatti</h2>
+      <h2 id="contact-title">Note e contatti</h2>
       <p>
-        I link puntano a PDF ufficiali pubblicati dai siti corporate del gruppo Coca-Cola e dei suoi partner / imbottigliatori.
-        Nella tesi cita esattamente gli URL dei documenti e le date di pubblicazione (es. pagine "Reports" o "Download centre").
+        Tutti i PDF collegati provengono dai siti ufficiali del gruppo Coca-Cola.
+        Puoi citare queste fonti nel capitolo della tesi destinato alla documentazione.
       </p>
 
       <address>
-        Studente: [Il tuo nome]<br />
-        Corso: Informatica per le aziende digitali — Project Work<br />
-        Email: <a href="mailto:tuo@universita.it">tuo@universita.it</a>
+        Studente: [Nome Cognome]<br>
+        Email: <a href="mailto:tuo@studente.unipd.it">tuo@studente.unipd.it</a>
       </address>
     </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <p>Pagina di esempio per la tesi — Report di sostenibilità. © <time datetime="2025-11-14">2025</time></p>
+      <p>Progetto web per la tesi — 2025</p>
     </div>
   </footer>
 
-  <!-- Script: filtri, ricerca e download via JS (commenti dettagliati sotto) -->
-  <script>
-    // ========== Accesso agli elementi principali ==========
-    const searchInput = document.getElementById('search');
-    const filterSelect = document.getElementById('filter-type');
-    const reportList = document.getElementById('report-list');
-
-    // Funzione: filtra la lista dei report in base a testo e tipo
-    function filterReports() {
-      const q = searchInput.value.trim().toLowerCase();
-      const type = filterSelect.value;
-
-      // itera ciascun <li> report-item e mostra/nasconde in base ai criteri
-      Array.from(reportList.children).forEach(li => {
-        const title = (li.querySelector('h3')?.textContent || '').toLowerCase();
-        const meta = (li.querySelector('.meta')?.textContent || '').toLowerCase();
-        const itemType = li.dataset.type || '';
-        const matchesQuery = q === '' || title.includes(q) || meta.includes(q);
-        const matchesType = (type === 'all') || (type === itemType);
-        li.style.display = (matchesQuery && matchesType) ? '' : 'none';
-      });
-    }
-
-    // Event listeners: ricerca live e filtro
-    searchInput.addEventListener('input', filterReports);
-    filterSelect.addEventListener('change', filterReports);
-
-    // ========== Download via JavaScript (fetch -> blob) ==========
-    // Spiegazione: alcuni browser permettono di scaricare direttamente un link (<a download>).
-    // Talvolta, però, può essere utile scaricare via fetch e creare un blob per forzare il salvataggio.
-    // Nota importante: il download via fetch può fallire per policy CORS se il server non consente richieste cross-origin.
-    async function fetchAndDownload(url, filename) {
-      try {
-        // Feedback visivo semplice: disabilito i bottoni temporaneamente
-        const btns = Array.from(document.querySelectorAll('button.btn-fetch')).filter(b => b.dataset.url === url);
-        btns.forEach(b => b.disabled = true);
-
-        const resp = await fetch(url, { mode: 'cors' }); // 'cors' è il default per cross-origin
-        if (!resp.ok) throw new Error('Errore download: ' + resp.status);
-
-        const blob = await resp.blob();
-        // Crea un oggetto URL temporaneo e simula click su <a> con download per salvare il file
-        const blobUrl = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = blobUrl;
-        a.download = filename || (url.split('/').pop() || 'report.pdf');
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(blobUrl);
-      } catch (err) {
-        // In caso di fallimento mostriamo avviso e invitiamo a usare il link diretto
-        alert('Impossibile scaricare via JavaScript (CORS o errore di rete). Usa il link "Scarica (link ufficiale)".\\nDettaglio: ' + err.message);
-      } finally {
-        document.querySelectorAll('button.btn-fetch').forEach(b => b.disabled = false);
-      }
-    }
-
-    // Collega i bottoni "Scarica con JavaScript"
-    document.querySelectorAll('button.btn-fetch').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const url = btn.dataset.url;
-        // Suggerimento: nome file più leggibile
-        const suggestedName = (url.split('/').pop() || 'report.pdf').split('?')[0];
-        fetchAndDownload(url, suggestedName);
-      });
-    });
-
-    // Accessibilità: consente invio di enter sul campo di ricerca per focalizzare primo risultato
-    searchInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        const firstVisible = reportList.querySelector('li[style*="display:"]:not([style*="display: none"])') || reportList.querySelector('li');
-        if (firstVisible) firstVisible.querySelector('a, button').focus();
-      }
-    });
-
-    // Esegui un filtro iniziale (utile se si impostano valori predefiniti)
-    filterReports();
-  </script>
 </body>
 </html>
+
