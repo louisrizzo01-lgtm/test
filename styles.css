@@ -1,128 +1,154 @@
-/* styles.css
-   Foglio di stile per la pagina di download report.
-   I commenti spiegano scelte di design e accessibilità (da riportare nella tesi).
-*/
+/* ==========================================================
+   STYLE.CSS – Stile completo, accessibile ed elegante
+   Progetto: Pagina per il download dei report di sostenibilità – Coca-Cola
+   ========================================================== */
 
-/* Reset minimale */
-* { box-sizing: border-box; }
-html,body { height: 100%; margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #222; background: #f7f7f8; }
+/* ----------------------------- */
+/*      IMPOSTAZIONI GENERALI    */
+/* ----------------------------- */
 
-/* Container centrale con margine adeguato */
-.container { max-width: 1000px; margin: 0 auto; padding: 1.25rem; }
-
-/* Skip link nascosto ma visibile quando in focus */
-.skip-link {
-  position: absolute;
-  left: -999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-.skip-link:focus {
-  left: 1rem;
-  top: 1rem;
-  width: auto;
-  height: auto;
-  padding: .5rem .75rem;
-  background: #000;
-  color: #fff;
-  z-index: 999;
-  border-radius: 4px;
+:root {
+    --primary: #cc0000;          /* Colore Coca-Cola */
+    --primary-dark: #a40000;
+    --text: #222;
+    --text-light: #555;
+    --card-bg: #ffffff;
+    --overlay-bg: rgba(255, 255, 255, 0.92);
+    --shadow: 0 4px 18px rgba(0,0,0,0.18);
+    --radius: 12px;
 }
 
-/* Header */
-.site-header { background: linear-gradient(90deg,#fff 0%, #fff 70%); border-bottom: 1px solid #e6e6e9; }
-.header-grid { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding: .75rem 0; }
-.brand .logo { height:40px; width:auto; display:block; }
-
-/* Navigazione */
-.nav { list-style: none; margin: 0; padding: 0; display:flex; gap: .5rem; }
-.nav a { text-decoration: none; padding: .5rem .75rem; border-radius:6px; color:#1b1b1c; }
-.nav a:hover, .nav a:focus { background:#f0f0f2; outline: none; }
-
-/* Intestazione principale */
-.intro h1 { margin-top: 1rem; margin-bottom: .25rem; font-size: 1.5rem; }
-.intro p { margin: 0 0 1rem 0; color:#444; }
-
-/* Controlli di ricerca */
-.controls { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom: 1rem; }
-.controls input[type="search"], .controls select {
-  padding: .5rem .6rem;
-  border-radius: 6px;
-  border: 1px solid #dcdce0;
-  background: #fff;
-  min-width: 200px;
-}
-
-/* Lista report */
-.reports h2 { font-size: 1.25rem; margin-top: 1.25rem; }
-.notes { color:#666; font-size: .95rem; margin-bottom: .75rem; }
-
-/* Card dei report - semantica a11y: ogni articolo ha sufficiente contrasto */
-.report-list { list-style:none; padding:0; margin:0; display:grid; gap:1rem; }
-.report-item article {
-  background: #ffffff;
-  border: 1px solid #e9e9ee;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 1px 2px rgba(20,20,30,0.03);
-}
-.report-item h3 { margin: 0 0 .25rem 0; font-size: 1.05rem; }
-.meta { font-size: .9rem; color:#666; margin-bottom: .5rem; }
-.summary { margin-bottom: .75rem; color:#444; }
-
-/* Azioni: bottoni e link */
-.actions { display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; }
-.btn {
-  display:inline-flex; align-items:center; gap:.5rem;
-  padding: .45rem .65rem; border-radius: 8px;
-  text-decoration:none; border: none; cursor:pointer;
-  font-size: .95rem;
-}
-.btn:focus { outline: 3px solid rgba(0,120,212,0.15); outline-offset:2px; }
-
-/* Varianti */
-.btn-download { background: #007bff; color: white; }
-.btn-download:hover { filter: brightness(.95); }
-.btn-fetch { background: #28a745; color: white; }
-.btn-info { background: transparent; color: #007bff; border: 1px solid transparent; }
-
-/* Footer */
-.site-footer { margin-top: 2rem; padding: .75rem 0; border-top: 1px solid #e6e6e9; background: transparent; color:#666; font-size:.95rem; }
-
-/* Utility: elementi nascosti ma leggibili dai screen reader */
-.visually-hidden {
-  position: absolute !important;
-  height: 1px; width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap;
-}
-
-/* Responsive: schermi piccoli */
-@media (max-width: 640px) {
-  .header-grid { flex-direction: column; align-items: flex-start; gap: .5rem; }
-  .actions { flex-direction: column; align-items: stretch; }
-  .controls { gap: .25rem; }
-}
-/* =========================================================
-   sfondo globale per la pagina
-   (Puoi sostituire background.jpg con il nome del file locale)
-   ========================================================= */
 body {
-  background: url("background.jpg") no-repeat center center fixed;
-  background-size: cover;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: url('background.jpg') center/cover no-repeat fixed;
 }
 
-/* Per rendere leggibile il contenuto sopra lo sfondo */
-.container, .site-header, .site-footer {
-  backdrop-filter: blur(4px);
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 10px;
+/* Overlay per aumentare leggibilità sopra lo sfondo */
+.wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px 45px;
+    background: var(--overlay-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
-/* Se vuoi maggiore contrasto nei contenuti allora aumenta l’opacità:  
-   background: rgba(255,255,255,0.85); 
-*/
+/* ----------------------------- */
+/*            HEADER             */
+/* ----------------------------- */
+
+.header h1 {
+    margin: 0;
+    text-align: center;
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+/* ----------------------------- */
+/*         TESTO INTRO           */
+/* ----------------------------- */
+
+.intro p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 25px;
+    color: var(--text-light);
+}
+
+/* ----------------------------- */
+/*       SEZIONE REPORT          */
+/* ----------------------------- */
+
+.reports {
+    margin-top: 40px;
+    display: grid;
+    gap: 25px;
+}
+
+.report-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: var(--radius);
+    border-left: 6px solid var(--primary);
+    box-shadow: var(--shadow);
+}
+
+.report-card h2 {
+    margin: 0 0 8px;
+    color: var(--primary);
+    font-size: 1.4rem;
+}
+
+.report-card .desc {
+    color: var(--text-light);
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+/* Pulsante download accessibile */
+.download-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.download-btn:hover,
+.download-btn:focus {
+    background: var(--primary-dark);
+}
+
+/* ----------------------------- */
+/*           FOOTER              */
+/* ----------------------------- */
+
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.footer .note {
+    font-size: 13px;
+    margin-top: 8px;
+    color: #777;
+}
+
+/* ----------------------------- */
+/*           RESPONSIVE          */
+/* ----------------------------- */
+
+@media (max-width: 600px) {
+    .wrapper {
+        padding: 25px;
+    }
+
+    .header h1 {
+        font-size: 1.6rem;
+    }
+
+    .report-card {
+        padding: 18px;
+    }
+
+    .download-btn {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+}
 
