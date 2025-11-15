@@ -26,7 +26,7 @@ body {
 
 /* HEADER */
 .site-header {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(144, 238, 144, 0.8);
   backdrop-filter: blur(6px);
   padding: 15px 0;
   margin-bottom: 20px;
