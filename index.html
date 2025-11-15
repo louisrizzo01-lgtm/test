@@ -1,78 +1,132 @@
+<!-- index.html aggiornato con sezioni sulla sostenibilità -->
+<!doctype html>
 <html lang="it">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Report di sostenibilità — Coca-Cola | Tesi</title>
-<meta name="description" content="Pagina web per scaricare i report di sostenibilità della Coca-Cola." />
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Report di sostenibilità — Coca-Cola | Tesi</title>
+  <meta name="description" content="Pagina web per scaricare i report di sostenibilità della Coca-Cola." />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip-link" href="#main">Salta al contenuto</a>
+  <a class="skip-link" href="#main">Salta al contenuto</a>
 
+  <header class="site-header" role="banner">
+    <div class="container header-grid">
+      <div class="brand">
+        <div class="logo-box">Sostenibilità • PW</div>
+      </div>
+      <nav aria-label="Navigazione principale">
+        <ul class="nav">
+          <li><a href="#about">Informazioni</a></li>
+          <li><a href="#sustainability">Impegno sostenibile</a></li>
+          <li><a href="#reports">Report</a></li>
+          <li><a href="#contact">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<header class="site-header" role="banner">
-<div class="container header-grid">
-<div class="brand">
-<div class="logo-box">Sostenibilità • PW</div>
-</div>
-<nav aria-label="Navigazione principale">
-<ul class="nav">
-<li><a href="#about">Informazioni</a></li>
-<li><a href="#sustainability">Impegno sostenibile</a></li>
-<li><a href="#reports">Report</a></li>
-<li><a href="#contact">Contatti</a></li>
-</ul>
-</nav>
-</div>
-</header>
+  <main id="main" class="container" role="main">
 
+    <section id="about" class="intro" aria-labelledby="about-title">
+      <h1 id="about-title">Report di sostenibilità — The Coca-Cola Company</h1>
+      <p>In questa pagina puoi consultare e scaricare i principali report di sostenibilità pubblicati dal gruppo Coca-Cola.</p>
+    </section>
 
-<main id="main" class="container" role="main">
+    <!-- NUOVA SEZIONE: IMPEGNO PER LA SOSTENIBILITÀ -->
+    <section id="sustainability" class="sustainability" aria-labelledby="sus-title">
+      <h2 id="sus-title">L'impegno di Coca‑Cola per la sostenibilità</h2>
 
+      <article class="sus-card">
+        <h3>Riduzione dell'impatto climatico</h3>
+        <p>Coca‑Cola lavora per ridurre le proprie emissioni di CO₂ lungo tutta la filiera, con l'obiettivo dichiarato di raggiungere la neutralità carbonica in diversi segmenti entro il 2040.</p>
+      </article>
 
-<section id="about" class="intro" aria-labelledby="about-title">
-<h1 id="about-title">Report di sostenibilità — The Coca-Cola Company</h1>
-<p>In questa pagina puoi consultare e scaricare i principali report di sostenibilità pubblicati dal gruppo Coca-Cola.</p>
-</section>
+      <article class="sus-card">
+        <h3>Riciclo e packaging responsabile</h3>
+        <p>L'azienda punta a utilizzare entro il 2030 bottiglie composte al 100% da materiale riciclato dove possibile, promuovendo un modello di "World Without Waste" basato sul riciclo totale degli imballaggi.</p>
+      </article>
 
+      <article class="sus-card">
+        <h3>Tutela e gestione sostenibile dell'acqua</h3>
+        <p>Coca‑Cola si impegna a restituire alle comunità e agli ecosistemi naturali una quantità d'acqua pari a quella utilizzata nei propri prodotti, tramite progetti di ripristino idrico.</p>
+      </article>
 
-<!-- NUOVA SEZIONE: IMPEGNO PER LA SOSTENIBILITÀ -->
-<section id="sustainability" class="sustainability" aria-labelledby="sus-title">
-<h2 id="sus-title">L'impegno di Coca‑Cola per la sostenibilità</h2>
+      <article class="sus-card">
+        <h3>Supporto alle comunità locali</h3>
+        <p>L'azienda investe in programmi sociali e iniziative per la crescita economica locale, con particolare attenzione a inclusione, formazione e supporto in aree vulnerabili.</p>
+      </article>
+    </section>
 
+    <section id="reports" class="reports" aria-labelledby="reports-title">
+      <h2 id="reports-title">Report disponibili</h2>
+      <p class="notes">I link sottostanti scaricano direttamente i file PDF ufficiali.</p>
 
-<article class="sus-card">
-<h3>Riduzione dell'impatto climatico</h3>
-<p>Coca‑Cola lavora per ridurre le proprie emissioni di CO₂ lungo tutta la filiera, con l'obiettivo dichiarato di raggiungere la neutralità carbonica in diversi segmenti entro il 2040.</p>
-</article>
+      <ul id="report-list" class="report-list">
+        <!-- Report 2023 -->
+        <li class="report-item">
+          <article aria-labelledby="r1-title">
+            <h3 id="r1-title">Environmental Update 2023 — The Coca-Cola Company</h3>
+            <p class="meta">Anno: 2023 · Formato: PDF</p>
+            <p class="summary">Aggiornamento ambientale su clima, packaging, uso dell’acqua.</p>
+            <div class="actions">
+              <a class="btn btn-download" href="https://www.coca-colacompany.com/content/dam/company/us/en/reports/2023-environmental-update/2023-environmental-update.pdf" download="CocaCola_Environmental_Update_2023.pdf">Scarica PDF</a>
+            </div>
+          </article>
+        </li>
 
+        <!-- Report 2022 -->
+        <li class="report-item">
+          <article aria-labelledby="r2-title">
+            <h3 id="r2-title">Business & Sustainability Report 2022</h3>
+            <p class="meta">Anno: 2022 · Formato: PDF</p>
+            <p class="summary">Report integrato che unisce performance aziendale e sostenibilità.</p>
+            <div class="actions">
+              <a class="btn btn-download" href="https://www.coca-colacompany.com/content/dam/company/us/en/reports/coca-cola-business-sustainability-report-2022.pdf" download="CocaCola_Business_Sustainability_2022.pdf">Scarica PDF</a>
+            </div>
+          </article>
+        </li>
 
-<article class="sus-card">
-<h3>Riciclo e packaging responsabile</h3>
-<p>L'azienda punta a utilizzare entro il 2030 bottiglie composte al 100% da materiale riciclato dove possibile, promuovendo un modello di "World Without Waste" basato sul riciclo totale degli imballaggi.</p>
-</article>
+        <!-- Partner Europei -->
+        <li class="report-item">
+          <article aria-labelledby="r3-title">
+            <h3 id="r3-title">Coca-Cola Europacific Partners — Sustainability Group Data 2023</h3>
+            <p class="meta">Anno: 2023 · Formato: PDF</p>
+            <p class="summary">Appendici e dati consolidati del partner europeo.</p>
+            <div class="actions">
+              <a class="btn btn-download" href="https://www.cocacolaep.com/assets/Download-centre/2023-Sustainability-group-data-3.pdf" download="CCEP_Sustainability_Group_Data_2023.pdf">Scarica PDF</a>
+            </div>
+          </article>
+        </li>
 
+        <li class="report-item">
+          <article aria-labelledby="r4-title">
+            <h3 id="r4-title">Coca-Cola HBC Italia — Sustainability Abstract 2022</h3>
+            <p class="meta">Anno: 2022 · Formato: PDF</p>
+            <p class="summary">Sintesi del rapporto di sostenibilità della filiale italiana.</p>
+            <div class="actions">
+              <a class="btn btn-download" href="https://it.coca-colahellenic.com/content/dam/cch/it/documents/pdf-sostenibilita-2023/27062024/CSR-23-abstract-eng.pdf.downloadasset.pdf" download="CocaColaHBC_Italia_2022.pdf">Scarica PDF</a>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </section>
 
-<article class="sus-card">
-<h3>Tutela e gestione sostenibile dell'acqua</h3>
-<p>Coca‑Cola si impegna a restituire alle comunità e agli ecosistemi naturali una quantità d'acqua pari a quella utilizzata nei propri prodotti, tramite progetti di ripristino idrico.</p>
-</article>
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Note e contatti</h2>
+      <p>Tutti i PDF collegati provengono dai siti ufficiali del gruppo Coca-Cola.</p>
+      <address>
+        Studente: [Nome Cognome]<br>
+        Email: <a href="mailto:tuo@studente.unipd.it">tuo@studente.unipd.it</a>
+      </address>
+    </section>
+  </main>
 
-
-<article class="sus-card">
-<h3>Supporto alle comunità locali</h3>
-<p>L'azienda investe in programmi sociali e iniziative per la crescita economica locale, con particolare attenzione a inclusione, formazione e supporto in aree vulnerabili.</p>
-</article>
-</section>
-
-
-<section id="reports" class="reports" aria-labelledby="reports-title">
-<h2 id="reports-title">Report disponibili</h2>
-<p class="notes">I link sottostanti scaricano direttamente i file PDF ufficiali.</p>
-
-
-<ul id="report-list" class="report-list">
-<!-- Report 2023 -->
-<li class="report-item">
-<article aria-labelledby="r1-title">
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>Progetto web per PW — 2025</p>
+    </div>
+  </footer>
+</body>
 </html>
