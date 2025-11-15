@@ -1,73 +1,63 @@
-/* ===== styles.css — foglio di stile principale (commentato) =====
-   Questo file contiene le regole CSS per la pagina "Report di sostenibilità".
-   Scopo: separare la presentazione (stili) dalla struttura (HTML) e mantenere
-   il codice ordinato e facilmente modificabile per la tesi.
-
-   Linee guida presenti nel file:
-   - Reset semplice con box-sizing per evitare problemi di calcolo delle dimensioni
-   - Variabili non utilizzate per semplicità (possono essere aggiunte se richiesto)
-   - Regole suddivise per sezione: Base, Header, Sections, Report List, Footer
+/* styles.css — versione completa e consolidata
+   Contiene: reset + tipografia + header + box bianchi per le sezioni + report cards + footer
+   Salva questo file come `styles.css` nella stessa cartella del tuo index.html
 */
 
-/* ==== Base: reset/normalizzazione e tipografia ==== */
+/* ===== Reset base e tipografia ===== */
 * {
-  /* box-sizing: border-box permette di includere padding e border nella larghezza */
-  box-sizing: border-box;
+  box-sizing: border-box; /* evita sorprese con padding/border nelle width */
   margin: 0;
   padding: 0;
 }
 
-/* Regole generali per il corpo del documento */
 body {
-  /* Tipografia leggibile, fallback generico per compatibilità */
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
-  background: #f7f7f7; /* sfondo chiaro neutro per il layout della tesi */
-  color: #333; /* colore testo primario */
+  background: #f7f7f7; /* sfondo generale della pagina */
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Intestazioni: peso e spaziatura */
+/* Intestazioni */
 h1, h2, h3 {
   font-weight: 600;
-  margin-bottom: 0.5em; /* distanziamento tra heading e paragrafo seguente */
+  margin-bottom: 0.5em;
 }
 
-/* Container centrale: limita la larghezza per migliorare la leggibilità */
+/* Container centrale per limitare la larghezza del contenuto */
 .container {
   width: 90%;
-  max-width: 1100px; /* limite superiore per layout desktop */
-  margin: 0 auto; /* centra orizzontalmente */
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* ==== Header: barra superiore con logo e navigazione ==== */
+/* ===== Header / Navbar ===== */
 .site-header {
-  background: #e50000; /* colore brand Coca-Cola - adattabile */
-  color: #fff; /* testo in contrasto */
-  padding: 1rem 0; /* spazio verticale interno */
-  margin-bottom: 2rem; /* separazione dal contenuto principale */
+  background: #e50000; /* colore brand */
+  color: #fff;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
 }
 
-/* Layout interno dell'header: logo a sinistra, nav a destra */
 .header-grid {
   display: flex;
-  justify-content: space-between; /* massimizza la distanza tra gli elementi */
-  align-items: center; /* allinea verticalmente logo e nav */
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Stile della "brand box" */
 .logo-box {
   font-size: 1.3rem;
   font-weight: bold;
 }
 
-/* Navigazione principale: lista orizzontale */
+/* nav orizzontale */
 .nav {
-  list-style: none; /* rimuove i pallini della lista */
+  list-style: none;
   display: flex;
-  gap: 1.2rem; /* distanza costante tra i link */
+  gap: 1.2rem;
 }
 
-/* Link della nav: visivamente prominenti e leggibili */
 .nav a {
   color: #fff;
   text-decoration: none;
@@ -75,90 +65,114 @@ h1, h2, h3 {
 }
 
 .nav a:hover {
-  /* semplice feedback visivo al passaggio del mouse */
   text-decoration: underline;
 }
 
-/* ==== Sezioni: spaziatura generale ==== */
+/* ===== Sezioni: box bianchi per maggiore leggibilità =====
+   Applichiamo qui il box bianco e l'ombra alle sezioni principali.
+   In questo modo tutto il testo delle sezioni risulterà all'interno di card chiare.
+*/
 section {
-  margin-bottom: 3rem; /* spazio tra le sezioni principali */
+  margin-bottom: 2rem;
+  background: #ffffff;         /* box bianco */
+  padding: 1.6rem;            /* spazio interno comodo per il testo */
+  border-radius: 10px;        /* angoli arrotondati */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* ombra delicata */
 }
 
+/* Se vuoi escludere header/footer da questo stile, notare che header/footer
+   NON sono elementi <section> quindi non sono influenzati. */
+
+/* Introduzione: testo un po' più grande */
 .intro p {
-  /* testo introduttivo leggermente più grande per enfatizzare */
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
-/* ==== Liste di sostenibilità: formattazione semplice ==== */
+/* Liste (sostenibilità ecc.) */
 ul {
-  margin-left: 1.2rem; /* rientro visivo delle liste */
+  margin-left: 1.2rem;
   margin-bottom: 1rem;
 }
 
-/* ==== Lista report: layout a griglia singola colonna (scalabile) ==== */
+/* ===== Lista report (card) ===== */
 .report-list {
-  list-style: none; /* i singoli elementi sono già card */
+  list-style: none;
   display: grid;
-  gap: 1.5rem; /* spazio verticale uniforme */
+  gap: 1.2rem;
+  padding: 0; /* assicurarsi che non ci siano padding residui sulla ul */
 }
 
-/* Card del singolo report */
+/* Ogni report è già una card; ne manteniamo l'aspetto */
 .report-item {
-  background: #fff; /* card su sfondo chiaro per separazione visiva */
-  padding: 1.5rem; /* spazio interno generoso per leggibilità */
-  border-radius: 8px; /* angoli arrotondati, look moderno */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* ombra leggera */
+  background: #fff;
+  padding: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
+/* Titoli e meta */
 .report-item h3 {
-  margin-bottom: 0.3rem; /* minor distanza sotto il titolo */
+  margin-bottom: 0.3rem;
 }
 
-/* Meta informativa del report (anno, formato) */
 .meta {
-  color: #666; /* colore secondario per distinguere il meta */
+  color: #666;
   font-size: 0.9rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
 
 .summary {
-  margin-bottom: 1rem; /* spazio prima del bottone */
+  margin-bottom: 0.9rem;
 }
 
-/* Bottone di download: stile call-to-action */
+/* Bottone download */
 .btn-download {
   display: inline-block;
-  background: #e50000; /* colore primario CTA */
+  background: #e50000;
   color: #fff;
-  padding: 0.6rem 1rem; /* dimensioni comode per clic e leggibilità */
+  padding: 0.55rem 0.9rem;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
 }
 
 .btn-download:hover {
-  background: #c10000; /* effetto hover per feedback */
+  background: #c10000;
 }
 
-section {
-margin-bottom: 3rem;
-background: #fff; /* white box */
-padding: 2rem; /* space inside box */
-border-radius: 10px; /* rounded edges */
-box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* soft shadow */
-}
-
-/* ==== Contatti ==== */
+/* ===== Contatti e footer ===== */
 .address {
-  font-style: normal; /* evita il corsivo predefinito sugli address */
+  font-style: normal;
 }
 
-/* ==== Footer: leggibile e discreto ==== */
 .site-footer {
-  padding: 1.5rem 0;
-  background: #222; /* sfondo scuro per distinguere il footer */
+  padding: 1.2rem 0;
+  background: #222;
   color: #fff;
-  margin-top: 3rem;
+  margin-top: 2rem;
   text-align: center;
+}
+
+/* ===== Responsive base =====
+   Manteniamo il layout semplice e leggibile su mobile.
+*/
+@media (max-width: 768px) {
+  .header-grid {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  .container {
+    width: 95%;
+  }
 }
 
