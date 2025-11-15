@@ -1,132 +1,156 @@
-/* RESET BASE */
+/* ===== styles.css — foglio di stile principale (commentato) =====
+   Questo file contiene le regole CSS per la pagina "Report di sostenibilità".
+   Scopo: separare la presentazione (stili) dalla struttura (HTML) e mantenere
+   il codice ordinato e facilmente modificabile per la tesi.
+
+   Linee guida presenti nel file:
+   - Reset semplice con box-sizing per evitare problemi di calcolo delle dimensioni
+   - Variabili non utilizzate per semplicità (possono essere aggiunte se richiesto)
+   - Regole suddivise per sezione: Base, Header, Sections, Report List, Footer
+*/
+
+/* ==== Base: reset/normalizzazione e tipografia ==== */
 * {
+  /* box-sizing: border-box permette di includere padding e border nella larghezza */
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
+/* Regole generali per il corpo del documento */
 body {
-  font-family: Arial, sans-serif;
+  /* Tipografia leggibile, fallback generico per compatibilità */
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
-  color: #222;
-  background: #f4f4f4 url('./background.jpg') no-repeat center fixed;
-  background-size: cover;
-  padding-bottom: 40px;
+  background: #f7f7f7; /* sfondo chiaro neutro per il layout della tesi */
+  color: #333; /* colore testo primario */
 }
 
+/* Intestazioni: peso e spaziatura */
+h1, h2, h3 {
+  font-weight: 600;
+  margin-bottom: 0.5em; /* distanziamento tra heading e paragrafo seguente */
+}
+
+/* Container centrale: limita la larghezza per migliorare la leggibilità */
 .container {
   width: 90%;
-  max-width: 1100px;
-  margin: auto;
+  max-width: 1100px; /* limite superiore per layout desktop */
+  margin: 0 auto; /* centra orizzontalmente */
 }
 
-/* HEADER */
+/* ==== Header: barra superiore con logo e navigazione ==== */
 .site-header {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(6px);
-  padding: 15px 0;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  background: #e50000; /* colore brand Coca-Cola - adattabile */
+  color: #fff; /* testo in contrasto */
+  padding: 1rem 0; /* spazio verticale interno */
+  margin-bottom: 2rem; /* separazione dal contenuto principale */
 }
 
+/* Layout interno dell'header: logo a sinistra, nav a destra */
 .header-grid {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* massimizza la distanza tra gli elementi */
+  align-items: center; /* allinea verticalmente logo e nav */
 }
 
-/* LOGO BOX (riquadro arancione come nella prima versione originale) */
+/* Stile della "brand box" */
 .logo-box {
-  background: #f44336;
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 6px;
-  font-size: 18px;
+  font-size: 1.3rem;
   font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* NAV */
+/* Navigazione principale: lista orizzontale */
 .nav {
+  list-style: none; /* rimuove i pallini della lista */
   display: flex;
-  gap: 18px;
+  gap: 1.2rem; /* distanza costante tra i link */
 }
 
-.nav li {
-  list-style: none;
-}
-
+/* Link della nav: visivamente prominenti e leggibili */
 .nav a {
+  color: #fff;
   text-decoration: none;
-  color: #333;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .nav a:hover {
-  color: #f44336;
+  /* semplice feedback visivo al passaggio del mouse */
+  text-decoration: underline;
 }
 
-/* INTRO */
-.intro {
-  background: rgba(255, 255, 255, 0.88);
-  padding: 25px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+/* ==== Sezioni: spaziatura generale ==== */
+section {
+  margin-bottom: 3rem; /* spazio tra le sezioni principali */
 }
 
-/* REPORT LIST */
+.intro p {
+  /* testo introduttivo leggermente più grande per enfatizzare */
+  font-size: 1.1rem;
+}
+
+/* ==== Liste di sostenibilità: formattazione semplice ==== */
+ul {
+  margin-left: 1.2rem; /* rientro visivo delle liste */
+  margin-bottom: 1rem;
+}
+
+/* ==== Lista report: layout a griglia singola colonna (scalabile) ==== */
 .report-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+  list-style: none; /* i singoli elementi sono già card */
+  display: grid;
+  gap: 1.5rem; /* spazio verticale uniforme */
 }
 
-.report-item article {
-  background: rgba(255, 255, 255, 0.92);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+/* Card del singolo report */
+.report-item {
+  background: #fff; /* card su sfondo chiaro per separazione visiva */
+  padding: 1.5rem; /* spazio interno generoso per leggibilità */
+  border-radius: 8px; /* angoli arrotondati, look moderno */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* ombra leggera */
 }
 
-.actions {
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+.report-item h3 {
+  margin-bottom: 0.3rem; /* minor distanza sotto il titolo */
 }
 
-.btn {
-  padding: 8px 14px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
+/* Meta informativa del report (anno, formato) */
+.meta {
+  color: #666; /* colore secondario per distinguere il meta */
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
 }
 
+.summary {
+  margin-bottom: 1rem; /* spazio prima del bottone */
+}
+
+/* Bottone di download: stile call-to-action */
 .btn-download {
-  background: #4caf50;
+  display: inline-block;
+  background: #e50000; /* colore primario CTA */
   color: #fff;
+  padding: 0.6rem 1rem; /* dimensioni comode per clic e leggibilità */
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.btn-fetch {
-  background: #2196f3;
-  color: #fff;
+.btn-download:hover {
+  background: #c10000; /* effetto hover per feedback */
 }
 
-.btn-info {
-  background: #ff9800;
-  color: #fff;
+/* ==== Contatti ==== */
+.address {
+  font-style: normal; /* evita il corsivo predefinito sugli address */
 }
 
-/* FOOTER */
+/* ==== Footer: leggibile e discreto ==== */
 .site-footer {
+  padding: 1.5rem 0;
+  background: #222; /* sfondo scuro per distinguere il footer */
+  color: #fff;
+  margin-top: 3rem;
   text-align: center;
-  margin-top: 40px;
-  padding: 20px;
-  color: #555;
-  background: rgba(255,255,255,0.8);
 }
+
