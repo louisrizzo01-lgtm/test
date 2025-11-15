@@ -12,7 +12,7 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #222;
-  background: #f4f4f4 url('./background.jpg') no-repeat center fixed; /* sfondo originale */
+  background: #f4f4f4 url('./background.jpg') no-repeat center fixed; /* sfondo */
   background-size: cover;
   padding-bottom: 40px;
 }
@@ -75,6 +75,10 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
+#about-title {
+    text-align: center;
+}
+
 /* SEZIONE SOSTENIBILITÀ */
 .sustainability {
   background: rgba(255, 255, 255, 0.88);
@@ -110,7 +114,8 @@ body {
 }
 
 .reports h2 {
-  font-family: Arial, sans-serif; /* se vuoi Century Gothic */
+  font-family: Arial, sans-serif;
+  text-align: center;
   margin-top: 0;
 }
 
