@@ -94,6 +94,11 @@ body {
   gap: 20px;
 }
 
+/* CENTRATURA TITOLO SEZIONE SOSTENIBILITÀ */
+#sus-title {
+    text-align: center;
+}
+
 .reports {
   background: rgba(255, 255, 255, 0.92);
   padding: 20px;
