@@ -98,6 +98,13 @@ body {
   gap: 20px;
 }
 
+/* Centrare i titoli h3 all’interno dei box */
+.sus-card h3 {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 /* CENTRATURA TITOLO SEZIONE SOSTENIBILITÀ */
 #sus-title {
     text-align: center;
